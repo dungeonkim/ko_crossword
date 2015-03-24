@@ -4,7 +4,7 @@
  </properties>
  <file source="map.lua"/>
  <file source="mtcg_ui.ttf"/>
- <file source="conv.lua" excludeFromExecution="1"/>
+ <file source="conv.lua"/>
  <file source="dict.lua"/>
  <file source="main.lua"/>
  <file source="crossword.lua"/>

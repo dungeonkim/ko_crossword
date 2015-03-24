@@ -20,7 +20,11 @@ repeat
 			local buf 
 			clue = s2:match("^%*1%. (.*)"):gsub('"','\"')
 			if l>1 and h:find("[\234-\237][\128-\191][\128-\191]") then
-				if clue:find(word)==nil and not clue:find("표기") then
+				if clue:find(word)==nil and 
+				    not clue:find("표기") and 
+					not clue:find("북한말") and 
+					not clue:find("육십 간지") and 
+					not clue:find("%)$") then
 					word = word:gsub(" ","")
 					buf = ('{"'..word..'","'..clue..'"},')
 					c=c+1
