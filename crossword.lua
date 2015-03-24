@@ -1,9 +1,9 @@
 MAX_COL = 200
 MAX_ROW = 200
 
-MIN_WORD = 10
-SIZE_X = 12
-SIZE_Y = 12
+MIN_WORD = 20
+SIZE_X = 8
+SIZE_Y = 8
 
 CELL_WIDTH = application:getLogicalWidth()/SIZE_X
 CELL_HEIGHT = CELL_WIDTH
