@@ -7,6 +7,7 @@ c = 0
 local word = ""
 local clue = ""
 f2:write("dict = {\n")
+local map = {}
 repeat
 	s = f:read("*l")
 	if s and (s:find("<abstract>") or s:find("<title>")) then 
@@ -24,6 +25,11 @@ repeat
 					buf = ('{"'..word..'","'..clue..'"},')
 					c=c+1
 					f2:write("\t"..buf.."\n")
+					for i=1,l do
+						local char = word:sub(i*3-2,i*3)
+						map[char] = map[char] or {}
+						map[char][#map[char]+1] = c
+					end
 				end
 				word = ""
 			end
@@ -37,3 +43,14 @@ f2:close()
 print("finish",c)
 
 
+f3 = io.open("d:/projects/ko_crossword/map.lua","w")
+f3:write("map = {\n")
+for k,v in pairs(map) do
+	f3:write('\t["'..k..'"]={')
+	for i,v2 in ipairs(v) do
+		f3:write(v2..",")
+	end
+	f3:write('},\n')
+end
+f3:write("}")
+f3:close()
